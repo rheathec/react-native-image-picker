@@ -31,17 +31,20 @@ public class ButtonsHelper
 
     public final @Nullable Item btnCamera;
     public final @Nullable Item btnLibrary;
+    public final @Nullable Item btnVideoLibrary;
     public final @Nullable Item btnCancel;
     public final List<Item> customButtons;
 
     public ButtonsHelper(@Nullable final Item btnCamera,
                          @Nullable final Item btnLibrary,
                          @Nullable final Item btnCancel,
+                         @Nullable final Item btnVideoLibrary,
                          @NonNull final LinkedList<Item> customButtons)
     {
         this.btnCamera = btnCamera;
         this.btnLibrary = btnLibrary;
         this.btnCancel = btnCancel;
+        this.btnVideoLibrary = btnVideoLibrary;
         this.customButtons = customButtons;
     }
 
@@ -57,6 +60,11 @@ public class ButtonsHelper
         if (btnLibrary != null)
         {
             result.add(btnLibrary.title);
+        }
+
+        if (btnVideoLibrary != null)
+        {
+            result.add(btnVideoLibrary.title);
         }
 
         for (int i = 0; i < customButtons.size(); i++)
@@ -81,6 +89,11 @@ public class ButtonsHelper
             result.add(btnLibrary.action);
         }
 
+        if (btnVideoLibrary != null)
+        {
+            result.add(btnVideoLibrary.action);
+        }
+
         for (int i = 0; i < customButtons.size(); i++)
         {
             result.add(customButtons.get(i).action);
@@ -94,9 +107,10 @@ public class ButtonsHelper
         Item btnCamera = getItemFromOption(options, "takePhotoButtonTitle", "photo");
         Item btnLibrary = getItemFromOption(options, "chooseFromLibraryButtonTitle", "library");
         Item btnCancel = getItemFromOption(options, "cancelButtonTitle", "cancel");
+        Item btnVideoLibrary = getItemFromOption(options, "chooseFromVideoLibraryButtonTitle", "library_video");
         LinkedList<Item> customButtons = getCustomButtons(options);
 
-        return new ButtonsHelper(btnCamera, btnLibrary, btnCancel, customButtons);
+        return new ButtonsHelper(btnCamera, btnLibrary, btnCancel, btnVideoLibrary, customButtons);
     }
 
     private static @Nullable Item getItemFromOption(@NonNull final ReadableMap options,

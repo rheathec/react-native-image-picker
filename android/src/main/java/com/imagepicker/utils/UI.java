@@ -57,6 +57,10 @@ public class UI
                         callback.onUseLibrary();
                         break;
 
+                    case "library_video":
+                        callback.onUseLibraryVideo();
+                        break;
+
                     case "cancel":
                         callback.onCancel();
                         break;
@@ -98,6 +102,7 @@ public class UI
     {
         void onTakePhoto();
         void onUseLibrary();
+        void onUseLibraryVideo();
         void onCancel();
         void onCustomButton(String action);
     }

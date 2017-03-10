@@ -8,6 +8,7 @@ const DEFAULT_OPTIONS = {
   cancelButtonTitle: 'Cancel',
   takePhotoButtonTitle: 'Take Photo…',
   chooseFromLibraryButtonTitle: 'Choose from Library…',
+  chooseFromVideoLibraryButtonTitle: 'Choose video from Library…',
   quality: 1.0,
   allowsEditing: false,
   permissionDenied: {
